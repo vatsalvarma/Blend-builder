@@ -1,4 +1,5 @@
-import type { Api, Origin, Settings, Order, Supply, AuditEntry, FlightCode } from '../engine/types';
+import type { Origin, Settings, Order, Supply, AuditEntry, FlightCode } from '../engine/types';
+import type { Api } from './api';
 
 const MOCK_ORIGINS: Origin[] = [
   { id: 'chikkamagaluru', name: 'Chikkamagaluru', flag: 'IN', tag: 'Classic Indian filter base', type: 'Arabica', color: '#b38822', flavor: { Fruity: 2, Flowery: 1, Sweet: 6, Nutty: 8, Spicy: 3, Tangy: 2, Strong: 5, Bitter: 4, Roasted: 5 }, pricePerKg: 750, inStock: true },
@@ -28,7 +29,7 @@ const MOCK_SETTINGS: Settings = {
 export const mockApi: Api = {
   async getOrigins() { return MOCK_ORIGINS; },
   async getSettings() { return MOCK_SETTINGS; },
-  async createOrder(o) { return { ...o, id: Date.now().toString(), status: 'new', createdAt: Date.now() } as Order; },
+  async createOrder(o: any) { return { ...o, id: Date.now().toString(), status: 'new', createdAt: Date.now() } as Order; },
   async getFeedbackTarget() { return null; },
   async submitFeedback() {},
   async login() {},
@@ -39,6 +40,6 @@ export const mockApi: Api = {
   async setOrderOutcome() {},
   async listAudit() { return []; },
   async listSupplies() { return []; },
-  async createSupply(s) { return { ...s, id: Date.now().toString() } as Supply; },
+  async createSupply(s: any) { return { ...s, id: Date.now().toString() } as Supply; },
   async markReminded() {}
 };
