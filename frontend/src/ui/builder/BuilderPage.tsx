@@ -124,7 +124,7 @@ export default function BuilderPage() {
     }
   };
 
-  const letterVariant = {
+  const letterVariant: any = {
     hidden: { opacity: 0, y: 50, rotateX: 90, filter: "blur(10px)" },
     visible: { 
       opacity: 1, 

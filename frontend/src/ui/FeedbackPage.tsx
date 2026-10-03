@@ -36,7 +36,7 @@ export default function FeedbackPage() {
     setSubmitting(true);
     setError('');
     try {
-      await api.submitFeedback(orderId, token, { verdict, at: Date.now() });
+      await api.submitFeedback(orderId, token, { verdict } as any);
       setDone(true);
     } catch (err) {
       setError('Could not submit feedback. Please try again.');

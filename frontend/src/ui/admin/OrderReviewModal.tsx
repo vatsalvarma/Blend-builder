@@ -62,12 +62,12 @@ export default function OrderReviewModal({ order, onClose, onUpdate }: Props) {
         </div>
 
         <div className="flex gap-4">
-          {order.status === 'pending' && (
+          {order.status === 'new' && (
             <button onClick={handleShip} className="flex-1 bg-accent text-black font-bold py-3 rounded uppercase tracking-widest text-xs hover:bg-accent/80 transition-colors">
               Mark as Shipped
             </button>
           )}
-          {order.status === 'shipped' && order.outcome === 'pending' && (
+          {order.status === 'shipped' && order.outcome === undefined && (
             <button onClick={handleComplete} className="flex-1 bg-green-600/20 text-green-400 border border-green-600/50 font-bold py-3 rounded uppercase tracking-widest text-xs hover:bg-green-600/30 transition-colors">
               Mark Won
             </button>
