@@ -1,6 +1,5 @@
-import { httpApi } from './httpApi';
+import { mockApi } from './mockApi';
 import type { Api } from './api';
 
-// For this project, we'll use httpApi in production and dev if connected to backend.
-// To use a mock, we could export a mockApi conditionally.
-export const api: Api = httpApi;
+// Using mockApi so the app functions as a static demo on GitHub Pages without a backend.
+export const api: Api = mockApi;
