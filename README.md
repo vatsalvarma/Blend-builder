@@ -1,4 +1,5 @@
-# React + TypeScript + Vite
+# visit:https://vatsalvarma.github.io/Blend-builder/
+<img width="1909" height="869" alt="image" src="https://github.com/user-attachments/assets/8ddd3e20-d73b-4b22-9373-20faaf937bef" />
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
