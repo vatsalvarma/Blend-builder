@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import BuilderPage from './builder/BuilderPage';
 import AdminApp from './admin/AdminApp';
@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<BuilderPage />} />
           <Route path="/feedback/:orderId" element={<FeedbackPage />} />
@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/login" element={<Navigate to="/admin" replace />} />
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </QueryClientProvider>
   );
 }
