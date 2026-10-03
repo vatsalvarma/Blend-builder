@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: blendbuilder
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/blendbuilder?createDatabaseIfNotExist=true}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:1000}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+server:
+  forward-headers-strategy: framework
+  port: 8080
+
+admin:
+  user: admin
+  password-hash: "$2b$10$4f8ZMVzcpsj37CFUl1HrP.AGIaLSxPI99KyyVKXmAmn6aBGwUTCPC" # bcrypt for "password"
+
+jwt:
+  secret: ${JWT_SECRET:super-secret-key-that-is-at-least-32-bytes-long-for-jwt-signing}
+  expiration: 86400000 # 24 hours
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

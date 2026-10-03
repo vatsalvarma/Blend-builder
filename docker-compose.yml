@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: blendbuilder
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/blendbuilder
+      DB_USER: postgres
+      DB_PASSWORD: mysecretpassword
+      ADMIN_USER: admin
+      ADMIN_PASSWORD_HASH: "$2a$10$w6yZ95M1/JkEaP03S1R8uep4zW07K96W6.9tFj4uU0.uI4E9r99yq" # 'password'
+    depends_on:
+      - db
+
+volumes:
+  pgdata:

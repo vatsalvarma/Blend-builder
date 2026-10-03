@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --ink: #1A120D;
+    --gold: #F4A900;
+    --terra: #C1666B;
+    --good: #5E8C5A;
+    --cream: #FAF3E6;
+    --muted: #6B5D52;
+    --line: #E4D8C4;
+    
+    --bg: #090909;
+    --text: #F5F5F5;
+  }
+
+  [data-theme='night'] {
+    --bg: var(--ink);
+    --text: var(--cream);
+    --muted: #B9AB98;
+    --line: #3A2D24;
+  }
+
+  body {
+    @apply bg-background text-text font-body;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-black/40 rounded-xl border border-white/5 shadow-glass backdrop-blur-xl relative overflow-hidden transition-all duration-500;
+  }
+  
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+  }
+  
+  .glass-card:hover {
+    @apply border-accent/30 shadow-[0_15px_40px_rgba(212,175,55,0.15)] transform -translate-y-1;
+  }
+
+  .luxury-button {
+    @apply relative px-8 py-4 bg-accent text-black font-semibold rounded-full overflow-hidden transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(212,175,55,0.3)];
+  }
+
+  .luxury-button:hover {
+    @apply shadow-[0_0_30px_rgba(212,175,55,0.6)];
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
