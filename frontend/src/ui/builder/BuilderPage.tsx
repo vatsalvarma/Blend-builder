@@ -150,7 +150,7 @@ export default function BuilderPage() {
         {/* Deep Parallax Background */}
         <motion.div 
           className="absolute inset-0 bg-cover bg-center origin-top z-0"
-          style={{ backgroundImage: 'url(/vasavi_bg_landscape.png)', y: bgY, scale: 1.05 }}
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}vasavi_bg_landscape.png)`, y: bgY, scale: 1.05 }}
         />
         
         {/* Dynamic Interactive Spotlight overlay linked to MotionValues */}
@@ -376,7 +376,7 @@ export default function BuilderPage() {
               {/* Transparent Background using Hero Image */}
               <div 
                 className="absolute inset-0 bg-cover bg-center opacity-50 pointer-events-none" 
-                style={{ backgroundImage: 'url(/vasavi_bg_landscape.png)' }} 
+                style={{ backgroundImage: `url(${import.meta.env.BASE_URL}vasavi_bg_landscape.png)` }} 
               />
               {/* Dark overlay to maintain contrast */}
               <div className="absolute inset-0 bg-black/50 pointer-events-none" />
@@ -461,7 +461,7 @@ export default function BuilderPage() {
                       dragElastic={0.2}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95, cursor: "grabbing" }}
-                      src="/luxury_coffee_bag.png" 
+                      src={`${import.meta.env.BASE_URL}luxury_coffee_bag.png`} 
                       alt="Luxury Coffee Bag" 
                       className="h-[140%] object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.9)] cursor-grab transition-transform" 
                       style={{ mixBlendMode: 'lighten' }}
