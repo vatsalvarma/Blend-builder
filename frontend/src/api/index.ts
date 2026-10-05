@@ -1,5 +1,7 @@
+import { httpApi } from './httpApi';
 import { mockApi } from './mockApi';
 import type { Api } from './api';
 
-// Using mockApi so the app functions as a static demo on GitHub Pages without a backend.
-export const api: Api = mockApi;
+// Use real backend (httpApi) for local development (which has your 27 beans).
+// Use mockApi for GitHub Pages deployment.
+export const api: Api = import.meta.env.DEV ? httpApi : mockApi;
